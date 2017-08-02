@@ -1,5 +1,13 @@
 This is a bot made for /r/beermoney on reddit. It will automatically choose winners for their referral contest.
 
+# Notable Features
+
+* New links or text can be added, or old links can be removed from the post at any time. The bot copies the post right before editing each time.
+* Old contest entries are saved to the disk, and then deleted from the spreadsheet.
+* Error messages are sent via the reddit messaging system and stored in a file.
+* Each referral link is tested to see if it works. If it does not work, the bot will test up to 100 entries in attempts of finding a working link. 
+* If no valid referral link can be found, the old referral link and winner will be left in the posts and the moderator will be notified.
+
 # Current Bugs
 * None that I know of!
 
@@ -64,14 +72,6 @@ This is a bot made for /r/beermoney on reddit. It will automatically choose winn
 8. Fill in the list of banned users into banned_users.txt
 
 9. Set the date for the last referral contest in last_updated.txt
-
-# Notable Features
-
-* New links or text can be added, or old links can be removed from the post at any time. The bot copies the post right before editing each time.
-* Old contest entries are saved to the disk, and then deleted from the spreadsheet.
-* Error messages are sent via the reddit messaging system and stored in a file.
-* Each referral link is tested to see if it works. If it does not work, the bot will test up to 100 entries in attempts of finding a working link. 
-* If no valid referral link can be found, the old referral link and winner will be left in the posts and the moderator will be notified.
 
 # Assumptions
 This is the list of every assumption made by this program that isn't directly controlled by the program.
