@@ -60,3 +60,23 @@ This is a bot made for /r/beermoney on reddit. It will automatically choose winn
         * To save the file: Ctrl + X then Y and then Enter to save
     * Restart cron to be safe
         * sudo /etc/init.d/cron restart
+        
+8. Fill in the list of banned users into banned_users.txt
+
+9. Set the date for the last referral contest in last_updated.txt
+
+# Notable Features
+
+* New links or text can be added, or old links can be removed from the post at any time. The bot copies the post right before editing each time.
+* Old contest entries are saved to the disk, and then deleted from the spreadsheet.
+* Error messages are sent via the reddit messaging system and stored in a file.
+* Each referral link is tested to see if it works. If it does not work, the bot will test up to 100 entries in attempts of finding a working link. 
+* If no valid referral link can be found, the old referral link and winner will be left in the posts and the moderator will be notified.
+
+# Assumptions
+This is the list of every assumption made by this program that isn't directly controlled by the program.
+
+* The google spreadsheet will have at least one value.
+* Every referral link in the reddit posts will start with "http" (https is fine, it just needs to start with at least http.)
+* "Winner: /u/" must exist under the referral contest page. That's how we figure out the old winners to replace them with the new ones.
+* There won't be more than 25 columns on the google spreadsheet.
