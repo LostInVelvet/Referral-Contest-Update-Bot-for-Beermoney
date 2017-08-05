@@ -112,7 +112,7 @@ def Pick_Winners(entries):
 					timesWon += 1
 			
 			if timesWon < 2:
-				user = Check_If_User_Can_Win(winner[0])
+				user = Check_If_User_Can_Win(winner[0], REDDIT)
 				refLink = Check_For_Ref_Link(winner[1:], entries, site)
 				
 				if refLink != False:
