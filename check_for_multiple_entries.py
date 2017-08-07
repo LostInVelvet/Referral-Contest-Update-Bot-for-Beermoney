@@ -122,7 +122,7 @@ def Check_For_Multiple_Entries(entries):
 							msg += entry[0][x] + bar + entry[1][x] + oneLine
 				
 						
-				if(msgIndex > 0 and entryIndex < len(entry)):
+				if(msgIndex > 0 and entryIndex <= len(entry)):
 					msg += blankLine
 			
 			msg += blankLine
