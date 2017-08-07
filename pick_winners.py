@@ -106,18 +106,20 @@ def Pick_Winners(entries):
 			num = randint(0, numEntries-1)
 			winner = entries[num]
 			
-			timesWon = 0
-			for sublist in contestWinners:
-				if(sublist[0] == winner[0]):
-					timesWon += 1
+			userValid = Check_If_User_Can_Win(winner[0], REDDIT)
 			
-			if timesWon < 2:
-				user = Check_If_User_Can_Win(winner[0], REDDIT)
-				refLink = Check_For_Ref_Link(winner[1:], entries, site)
+			if(userValid):
+				timesWon = 0
+				for sublist in contestWinners:
+					if(sublist[0] == winner[0]):
+						timesWon += 1
 				
-				if refLink != False:
-					contestWinners.append([winner[0], refLink])
-					break
+				if timesWon < 2:
+					refLink = Check_For_Ref_Link(winner[1:], entries, site)
+					
+					if refLink != False:
+						contestWinners.append([winner[0], refLink])
+						break
 			tries += 1
 	return contestWinners
 #                             End of Pick Winners
