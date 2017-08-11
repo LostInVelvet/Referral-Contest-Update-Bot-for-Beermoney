@@ -134,7 +134,7 @@ def Pick_Winners(entries):
 	msg = ""
 	nl = "\n\n"
 	usr = "/u/"
-	reason = [	"Users whos account does not exist or are shadowbanned:",
+	reason = [	"Users whos account does not exist or are banned by reddit:",
 				"Users who are banned from participating:",
 				"Users whos accounts are not old enough:",
 				"Users who don't have enough posts:",
