@@ -128,10 +128,8 @@ def Check_If_User_Can_Win(winner, REDDIT):
 		
 	
 	if(exists and notBanned and enoughPosts and recentPosts):
-		print "valid"
 		return [True, invalidWinner]
 	else:
-		print "invalid"
 		return [False, invalidWinner]
 	
 #                End of Check If The Winner Is Allowed To Win
