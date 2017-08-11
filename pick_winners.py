@@ -93,6 +93,7 @@ def Pick_Winners(entries):
 	numEntries = Count_Entries(entries)
 	contestWinners = []
 	maxTries = 100;
+	invalidWinners = []
 	
 	for site in sites_with_refs:
 		tries = 0
