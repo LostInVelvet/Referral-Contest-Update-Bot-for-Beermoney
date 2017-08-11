@@ -1,6 +1,8 @@
 from check_winner import *
 from error_handler import *
 from get_domain import *
+from myconfig import *
+from operator import itemgetter
 from random import randint
 from reddit_handler import REDDIT
 from urlparse import urlparse
@@ -106,7 +108,8 @@ def Pick_Winners(entries):
 			num = randint(0, numEntries-1)
 			winner = entries[num]
 			
-			userValid = Check_If_User_Can_Win(winner[0], REDDIT)
+			canWinReturn = Check_If_User_Can_Win(winner[0], REDDIT)
+			userValid = canWinReturn[0]
 			
 			if(userValid):
 				timesWon = 0
@@ -120,7 +123,39 @@ def Pick_Winners(entries):
 					if refLink != False:
 						contestWinners.append([winner[0], refLink])
 						break
+			else:
+				invalidWinners.append(canWinReturn[1])
 			tries += 1
+			
+			
+	blankLine = "\n\n&nbsp;\n\n"
+	bold = "**"
+	msg = ""
+	nl = "\n\n"
+	usr = "/u/"
+	reason = [	"Users whos account does not exist or are shadowbanned:",
+				"Users who are banned from participating:",
+				"Users whos accounts are not old enough:",
+				"Users who don't have enough posts:",
+				"Users who do not have recent posts:",
+			 ]
+	
+	invalidWinners = sorted(invalidWinners, key=itemgetter(1))
+	lastReason = -1;
+	
+	if(invalidWinners != []):
+		for entry in invalidWinners:
+			if(lastReason != entry[1]):
+				if(lastReason != -1):
+					msg += blankLine
+				msg += bold + reason[entry[1]] + bold
+				lastReason = entry[1]
+				
+			msg += nl + usr + entry[0]
+		
+		msg_to_send = "Hey, it's your bot here. I handle the referral link contest. I found some invalid potential this week:" + blankLine + msg + blankLine + "My associated subreddit: /r/beermoney"
+		REDDIT.redditor(message_user).message("Invalid Potential Winners Found", msg_to_send)
+			
 	return contestWinners
 #                             End of Pick Winners
 # ----------------------------------------------------------------------------
