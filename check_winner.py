@@ -31,9 +31,9 @@ def Check_If_User_Can_Win(winner, REDDIT):
 		
 		
 		# Check if user is banned by the subreddit
-#		for user in REDDIT.subreddit('beermoney').banned():
-#			if(user == winner):
-#				return False
+		for user in REDDIT.subreddit('beermoney').banned():
+			if(user == winner):
+				return False
 		return True
 	
 	
@@ -115,11 +115,24 @@ def Check_If_User_Can_Win(winner, REDDIT):
 				
 				if(enoughPosts):
 					recentPosts = User_Has_Recent_Posts()
+					if(recentPosts == False):
+						invalidWinner = [winner, 4]
+				else:
+					invalidWinner = [winner, 3]
+			else:
+				invalidWinner = [winner, 2]
+		else:
+			invalidWinner = [winner, 1]
+	else:
+		invalidWinner = [winner, 0]
+		
 	
 	if(exists and notBanned and enoughPosts and recentPosts):
-		return True
+		print "valid"
+		return [True, invalidWinner]
 	else:
-		return False
-
+		print "invalid"
+		return [False, invalidWinner]
+	
 #                End of Check If The Winner Is Allowed To Win
 # ----------------------------------------------------------------------------
