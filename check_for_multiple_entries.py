@@ -90,7 +90,6 @@ def Check_For_Multiple_Entries(entries):
 	msg = ""
 	nl = "\n\n"
 	oneLine = "\n"
-	solidLine = "\n\n------\n\n"
 	tableFormat = ":--|:--"
 	usr = "/u/"
 	reason = [	"Users who had multiple of the same entry:",
