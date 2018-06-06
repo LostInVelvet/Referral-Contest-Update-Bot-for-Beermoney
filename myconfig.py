@@ -20,4 +20,4 @@ google_sheet_id			= ""										# This is the value after "#gid=" in the url. If
 
 # The creator of the bot
 creator = "LostInVelvet"
-message_user = "aghuman1"
+message_user = "Threw_it_to_ground"
